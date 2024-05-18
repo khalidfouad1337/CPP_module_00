@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 10:43:33 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/12 14:19:43 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/18 02:47:15 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 
 int promp(std::string str)
 {
-    std::cout << str << std::endl;
-    std::cout << "====>";
+    std::cout << BGRN << str << "\n"<< WHT << "====> ";
     return (1);
 }
 
@@ -42,30 +41,35 @@ Contact fill_data()
 
 int main(int ac, char **av)
 {
+   
     (void)av;
     if(ac == 1)
     {
         PhoneBook phonebook;
         int i = 0;
+        // int count;
         Contact contact;
         std::string cmd;
         
-        while(1)
+        promp("PLEASE CHOOSE 'ADD' / 'SEARCH' / 'EXIT' :");
+        while(getline(std::cin, cmd))
         {
-            promp("ktab chi haja");
-            getline(std::cin, cmd);
-            if(cmd.compare("ADD") == 0)
+            
+            if (std::cin.eof() || cmd.compare("EXIT") == 0)
+                 break ;
+            else if(cmd.compare("ADD") == 0)
             {
                 contact = fill_data();
                 phonebook.addContact(i, contact);
-                i++;
+                if (i !=  7)
+                    i++;
             }
             else if(cmd.compare("SEARCH") == 0)
-                phonebook.searchContact();
-            else if(cmd.compare("EXIT") == 0)
-                break;
-            else
-                std::cout << "ktab asahbi chihaja shiha";
+            {
+                std :: cout << i << "==>" << std :: endl;
+                phonebook.searchContact(i);
+            }
+         promp("PLEASE CHOOSE 'ADD' / 'SEARCH' / 'EXIT' :");
         }
     }
 }
