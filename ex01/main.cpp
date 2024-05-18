@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 10:43:33 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/18 02:47:15 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/18 03:48:14 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int main(int ac, char **av)
     {
         PhoneBook phonebook;
         int i = 0;
-        // int count;
         Contact contact;
         std::string cmd;
         
@@ -61,15 +60,16 @@ int main(int ac, char **av)
             {
                 contact = fill_data();
                 phonebook.addContact(i, contact);
-                if (i !=  7)
-                    i++;
+                if (i == 7)
+                    i = -1;
+                i++;
             }
             else if(cmd.compare("SEARCH") == 0)
             {
                 std :: cout << i << "==>" << std :: endl;
-                phonebook.searchContact(i);
+                phonebook.searchContact();
             }
-         promp("PLEASE CHOOSE 'ADD' / 'SEARCH' / 'EXIT' :");
+        promp("PLEASE CHOOSE 'ADD' / 'SEARCH' / 'EXIT' :");
         }
     }
 }

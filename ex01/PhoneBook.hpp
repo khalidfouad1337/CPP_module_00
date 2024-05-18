@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 10:45:46 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/18 01:36:49 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/18 03:56:07 by khalid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ class PhoneBook
 private:
     Contact contacts[8];
     void print_info_contact(std::string str);
-    void display_contacts(int index);
+    void display_contacts(int *index);
     void print_full_info_contact(int index);
 
 public:
     PhoneBook();
     void addContact(int i, Contact contact);
-    void searchContact(int);
+    void searchContact();
     ~PhoneBook();
 };
 
