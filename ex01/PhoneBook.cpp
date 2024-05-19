@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 11:29:10 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/18 03:58:31 by khalid           ###   ########.fr       */
+/*   Updated: 2024/05/18 20:43:00 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,26 @@ void PhoneBook::print_info_contact(std::string str)
      }
      while(str[i] != '\0' && i < 9)
      {
-          std::cout << str[i];
+          std::cout << YEL << str[i];
           i++;
      }
      if(i == 9)
-          std::cout << ".";
+          std::cout << YEL << ".";
 };
 
 void PhoneBook::display_contacts(int *index)
 {
      int j = 0;
         
-     while(contacts[j].get_firstName().length() != 0)
+     std::cout << MAG << "\n" << "     INDEX" << "      FNAME" << "      LNAME" << "      NNAME" << std::endl;
+     while(contacts[j].get_firstName().length() != 0 && j <= 7)
      {
-          std::cout << "      " << j;
-          std::cout << "|";
+          std::cout << "         " << WHT << j;
+          std::cout << CYN << "|";
           print_info_contact(contacts[j].get_firstName());
-          std::cout << "|";
+          std::cout << CYN << "|";
           print_info_contact(contacts[j].get_lastName());
-          std::cout << "|";
+          std::cout << CYN << "|";
           print_info_contact(contacts[j].get_nickName());
           std::cout << std::endl;
           j++;
@@ -66,22 +67,22 @@ void PhoneBook::display_contacts(int *index)
 
 void PhoneBook::print_full_info_contact(int index)
 {
-     std::cout << contacts[index].get_firstName() << std::endl;
-     std::cout << contacts[index].get_lastName() << std::endl;
-     std::cout << contacts[index].get_nickName() << std::endl;
-     std::cout << contacts[index].get_phoneNumber() << std::endl;
-     std::cout << contacts[index].get_darketSecret() << std::endl;
+     std::cout << BLU << "FIRST NAME    : " << YEL << contacts[index].get_firstName() << std::endl;
+     std::cout << BLU << "LAST NAME     : " << YEL << contacts[index].get_lastName() << std::endl;
+     std::cout << BLU << "NICK NAME     : " << YEL<< contacts[index].get_nickName() << std::endl;
+     std::cout << BLU << "PHONE NUMBER  : " << YEL << contacts[index].get_phoneNumber() << std::endl;
+     std::cout << BLU << "DARKET SECRET : " << YEL << contacts[index].get_darketSecret() << std::endl;
 };
 
 void PhoneBook::searchContact(){
      std::string index_str;
      int index;
-     int nmb_index;
+     int nmb_index = 0;
      display_contacts(&nmb_index);
      
      if(nmb_index != 0)
      {
-          std::cout << "Enter index for contact :===>";
+          std::cout << BGRN << "Enter index for contact :===>  ";
           getline(std::cin, index_str);
           if(index_str.length() == 1  && index_str[0] >= '0' && index_str[0] <= '7')
           {
@@ -94,8 +95,6 @@ void PhoneBook::searchContact(){
           else
                std::cout << RED << "index for contact is digit  between [ 0 ," << nmb_index - 1  << " ] ❗️" << WHT  << std::endl;
      }
-     else
-          std::cout << " LIST CONTACT IS EMPTY "<< std ::endl;
 };
 
  PhoneBook:: ~PhoneBook()
