@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 10:43:33 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/19 00:58:52 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/19 19:31:36 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int promp(std::string str)
 int  fill_data(Contact & contact)
 {
     std::string firstN, lastN, nickN, phoneN, darkestS;
-    while(firstN.length() == 0 && promp("Enter first name       : "))
+    while(firstN.length() == 0 && promp("Enter first name     : "))
     {
          getline(std::cin, firstN);
          if(std::cin.eof())
@@ -39,7 +39,7 @@ int  fill_data(Contact & contact)
          if(std::cin.eof())
            return 1;
     }
-    while(nickN.length() == 0 && promp("Enter nickname        : "))
+    while(nickN.length() == 0 && promp("Enter nickname       : "))
     {
         getline(std::cin, nickN);
         if(std::cin.eof())
