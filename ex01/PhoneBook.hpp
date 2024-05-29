@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khalid <khalid@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 10:45:46 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/18 03:56:07 by khalid           ###   ########.fr       */
+/*   Updated: 2024/05/20 19:16:23 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ private:
 public:
     PhoneBook();
     void addContact(int i, Contact contact);
-    void searchContact();
+    int searchContact();
     ~PhoneBook();
 };
 

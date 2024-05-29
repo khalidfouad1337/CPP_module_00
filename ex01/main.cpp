@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 10:43:33 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/19 19:31:36 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/20 19:18:17 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,10 @@ int main(int ac, char **av)
                 i++;
             }
             else if(cmd.compare("SEARCH") == 0)
-                phonebook.searchContact();
+            {
+                if(phonebook.searchContact() == 1)
+                    break;
+            }
         promp("PLEASE CHOOSE 'ADD' / 'SEARCH' / 'EXIT' :");
         }
     }

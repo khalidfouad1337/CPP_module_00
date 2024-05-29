@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   MegaPhone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 18:58:09 by khalid            #+#    #+#             */
-/*   Updated: 2024/05/12 09:48:35 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:56:40 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,11 @@ int main(int ac, char **av)
     
     i = 1;
     if(ac <= 1)
-    {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-    }
     else
     {
         while (i < ac)
-        {
-            UpperCase(av[i]);
-            i++;
-        }
+            UpperCase(av[i++]);
         std::cout << std::endl;
     }
 }

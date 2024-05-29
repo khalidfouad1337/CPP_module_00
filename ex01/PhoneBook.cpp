@@ -6,17 +6,16 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 11:29:10 by kfouad            #+#    #+#             */
-/*   Updated: 2024/05/19 18:58:52 by kfouad           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:27:14 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
- PhoneBook:: PhoneBook()
- {
-     std :: cout << MAG << "**************** 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙔𝙊𝙐𝙍 𝙋𝙃𝙊𝙉𝙀𝘽𝙊𝙊𝙆 📞📞😎😎****************\n"<< WHT << std :: endl;
- } 
-
+PhoneBook:: PhoneBook()
+{
+    std :: cout << MAG << "**************** 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙔𝙊𝙐𝙍 𝙋𝙃𝙊𝙉𝙀𝘽𝙊𝙊𝙆 📞📞😎😎****************\n"<< WHT << std :: endl;
+} 
 
 void PhoneBook::addContact(int i, Contact contact)
 {
@@ -74,7 +73,7 @@ void PhoneBook::print_full_info_contact(int index)
      std::cout << BLU << "DARKET SECRET : " << YEL << contacts[index].get_darketSecret() << std::endl;
 };
 
-void PhoneBook::searchContact(){
+int PhoneBook::searchContact(){
      std::string index_str;
      int index;
      int nmb_index = 0;
@@ -84,21 +83,24 @@ void PhoneBook::searchContact(){
      {
           std::cout << BGRN << "Enter index for contact :===>  ";
           getline(std::cin, index_str);
+          if(std::cin.eof())
+               return 1;
           if(index_str.length() == 1  && index_str[0] >= '0' && index_str[0] <= '7')
           {
                index = stoi(index_str);
-               if( (nmb_index >= index) && (index >= 0 && index <= 7))
+               if( (nmb_index > index) && (index >= 0 && index <= 7))
                     print_full_info_contact(index);
                else
                     std :: cout << RED << "CONTACT NOT  FOUND ❌" << WHT << std :: endl;
           }
           else
-               std::cout << RED << "index for contact is digit  between [ 0 ," << nmb_index - 1  << " ] ❗️" << WHT  << std::endl;
+               std::cout << RED << "index for contact is digit  between [ 0 , 7 ] ❗️" << WHT  << std::endl;
      }
+     return 0;
 };
 
- PhoneBook:: ~PhoneBook()
- {
-     std :: cout << GRN << "******************* 𝙎𝙀𝙀 𝙔𝙊𝙐 𝙇𝘼𝙏𝙀𝙍 😉 *******************"<< WHT << std :: endl;
- } 
-
+PhoneBook:: ~PhoneBook()
+{
+    std :: cout << "\n" << GRN << "******************* 𝙎𝙀𝙀 𝙔𝙊𝙐 𝙇𝘼𝙏𝙀𝙍 😉 *******************"<< WHT << std :: endl;
+}
+ 
